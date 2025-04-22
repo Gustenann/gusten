@@ -1,0 +1,132 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+  header('Location: login.html');
+  exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Octopus Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary: #1E88E5;
+      --secondary: #90CAF9;
+      --background: #F5F7FA;
+      --text: #1C1C1C;
+      --accent: #FFC107;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      padding: 4rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      min-height: 100vh;
+    }
+
+    .booking-form {
+      background-color: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .booking-form h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      margin-top: 1.25rem;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #fefefe;
+      margin-bottom: 0.5rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #1565C0;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="booking-form">
+    <h1>Boka ett Mötesrum</h1>
+    <form action="book_room.php" method="POST">
+      <label for="room_id">Välj Mötesrum:</label>
+      <select name="room_id" id="room_id" required>
+        <option value="" disabled selected>-- Välj ett rum --</option>
+        <option value="1">Rum 1</option>
+        <option value="2">Rum 2</option>
+      </select>
+
+      <label for="start_time">Starttid:</label>
+      <input type="datetime-local" name="start_time" id="start_time" required>
+
+      <label for="end_time">Sluttid:</label>
+      <input type="datetime-local" name="end_time" id="end_time" required>
+
+      <label for="description">Beskrivning:</label>
+      <textarea name="description" id="description" placeholder="Ex. Projektmöte med IT-teamet..."></textarea>
+
+      <button type="submit">Boka mötesrum</button>
+    </form>
+    <div class="footer">Octopus Booking &copy; 2025 | Big Squid AB</div>
+  </div>
+</body>
+</html>
