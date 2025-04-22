@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Logga in</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #F5F7FA;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      margin-bottom: 1rem;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #1E88E5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1565C0;
+    }
+
+    .site-title {
+      font-size: 2rem;
+      color: #1E88E5;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="site-title">Octopus Booking</h1>
+    <form action="index.html" method="POST">
+      <h2>Logga in</h2>
+      <input type="email" name="email" placeholder="E-post" required>
+      <input type="password" name="password" placeholder="Lösenord" required>
+      <button type="submit">Logga in</button>
+    </form>
+  </div>
+</body>
+</html>
